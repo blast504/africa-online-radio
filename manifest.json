@@ -9,13 +9,30 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "./africa-online-radio.jpg",
+    {
+  "name": "Africa Online Radio",
+  "short_name": "Africa Radio",
+  "description": "Zimbabwe and Malawi online radio",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#e60000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "africa-online-radio.jpg",
       "sizes": "192x192",
       "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "./africa-online-radio.jpg",
+      "src": "africa-online-radio.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
+
       "sizes": "512x512",
       "type": "image/jpeg"
     }
