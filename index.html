@@ -188,13 +188,25 @@
     <div class="station">
     <h2>🇿🇼 Khulumani FM 95.0</h2>
     <p>Zimbabwe Online Radio</p>
-    <p class="live">🟢 LIVE — Playing now</p>
+    <p class="live">🟢 LIVE — Khulumani FM</p>
 
-    <audio controls>
+    <audio id="khulumaniPlayer" controls preload="none">
+        <source src="https://stream.zeno.fm/khulumani-fm" type="audio/mpeg">
         <source src="https://stream.zeno.fm/khulumani-fm-95-0" type="audio/mpeg">
-        Your browser does not support the audio player.
+        Your browser does not support audio playback.
     </audio>
 </div>
+
+<script>
+    const player = document.getElementById('khulumaniPlayer');
+
+    player.addEventListener('play', () => {
+        if (player.readyState === 0) {
+            player.load();
+        }
+    });
+</script>
+
 
     <div class="station">
         <h2>🇲🇼 Zeno FM</h2>
