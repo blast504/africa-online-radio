@@ -1,436 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="africa-online-radio-logo.png">
-<link rel="apple-touch-icon" href="africa-online-radio-logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Africa Online Radio — listen to live radio stations from Zimbabwe, Malawi, Zambia, South Africa and across Africa.">
+    <link rel="icon" type="image/png" href="africa-online-radio-logo.png">
+    <link rel="apple-touch-icon" href="africa-online-radio-logo.png">
     <link rel="manifest" href="manifest.json">
-<title>Africa Online Radio</title>
-<style>
-.radio-card {
-    background: #ffffff;
-    color: #111111;
-    margin: 25px 0;                /* ADD: vertical space between cards */
-    padding: 30px 20px;            /* ADD: match station padding */
-    border-radius: 18px;           /* ADD: rounded corners like .station */
-    border: 2px solid #222222;     /* ADD: match station border */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.35); /* ADD: match station shadow */
-}
-
-.radio-card {
-    background: white;
-    color: #111;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #111;
-    color: white;
-    text-align: center;
-}
-
-.logo {
-    width: 180px;
-    height: auto;
-    margin: 20px auto;
-}
-
-        header {
-            background: #e60000;
-            padding: 30px 15px;
+    <title>Africa Online Radio</title>
+    <style>
+        :root{
+            --card-bg: #ffffff;
+            --card-text: #111111;
+            --page-bg: #111111;
+            --muted: #666666;
+            --accent: #e60000;
         }
 
-        header h1 {
+        /* Layout */
+        body {
             margin: 0;
-            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--page-bg);
+            color: #fff;
+            text-align: center;
+            -webkit-font-smoothing:antialiased;
         }
 
-        header p {
-            margin: 10px 0 0;
-            font-size: 16px;
-        }
+        .container{ max-width: 900px; margin: 0 auto; padding: 20px; }
 
-        .container {
-            max-width: 700px;
-            margin: auto;
-            padding: 20px;
-        }
+        header{ background: var(--accent); padding: 28px 16px; color: #fff; }
+        header h1{ margin: 0; font-size: 28px; }
+        header p.tagline{ margin: 8px 0 0; color: rgba(255,255,255,0.95); font-size: 15px; }
 
-        .station {
-            background: #ffffff;
-            color: #111111;
-            margin: 25px 0;
-            padding: 30px 20px;
-            border-radius: 18px;
-            border: 2px solid #222222;
+        .logo{ width:140px; height:auto; display:block; margin:12px auto; }
+
+        /* Station card */
+        .station, .radio-card{
+            background: var(--card-bg);
+            color: var(--card-text);
+            margin: 20px 0;
+            padding: 22px 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(0,0,0,0.35);
             box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+            text-align:left;
         }
 
-        .station h2 {
-            margin-top: 0;
-            color: #111111;
-            font-size: 24px;
-            font-weight: bold;
-        }
+        .station h2, .radio-card h2{ margin: 0 0 8px; font-size:20px; }
+        .station p, .radio-card p{ margin:0 0 8px; color: #333; }
+        .station .meta{ color: var(--muted); font-size:14px; }
 
-        .station p {
-            color: #333333;
-        }
+        .live { color: #0a8f0a; font-weight:700; }
 
-        .live {
-            color: green !important;
-            font-weight: bold;
-        }
+        audio{ width:100%; max-width:100%; margin-top:12px; background:#000; border-radius:6px; }
 
-        audio {
-            width: 100%;
-            margin-top: 20px;
-            height: 45px;
-        }
+        .badge{ display:inline-block; background:#eee; color:#111; padding:4px 8px; border-radius:10px; font-size:13px; margin-bottom:8px; }
+        .location{ color: var(--muted); font-size:14px; margin-bottom:6px; }
 
-        .coming-soon {
-            margin: 30px 0;
-            padding: 25px 15px;
-            background: #222;
-            color: white;
-            border-radius: 15px;
-        }
+        .coming-soon{ margin:24px 0; padding:18px; background:#222; color:#fff; border-radius:10px; }
 
-        .coming-soon h2 {
-            margin: 0 0 10px;
-            font-size: 22px;
-        }
+        /* Zambia list */
+        .zambia-list{ text-align:left; margin: 18px 0; }
+        .zambia-list ol{ padding-left: 1.2rem; }
+        .zambia-list h2{ margin:0 0 8px; }
 
-        .coming-soon p {
-            margin: 0;
-            color: #ccc;
-        }
+        footer{ margin-top:30px; padding:18px; background:#222; color:#aaa; }
 
-        footer {
-            margin-top: 30px;
-            padding: 20px;
-            background: #222;
-            color: #aaa;
+        /* Responsive */
+        @media (max-width:600px){
+            .container{ padding:12px; }
+            .station, .radio-card{ padding:16px; }
+            header h1{ font-size:20px; }
         }
     </style>
 </head>
-
 <body>
-    <img src="africa-online-radio-logo.png" alt="Africa Online Radio Logo" class="logo">
+    <header>
+        <img src="africa-online-radio-logo.png" alt="Africa Online Radio" class="logo">
+        <h1>Africa Online Radio</h1>
+        <p class="tagline">Live radio from Zimbabwe • Malawi • Zambia • South Africa — curated and playable in your browser</p>
+    </header>
 
-<header>
-    <h1>📻 Africa Online Radio</h1>
-    <h1>🌍 Africa Online Radio — Zimbabwe • Malawi • Zambia • South Africa</h1>
-</header>
+    <main class="container" role="main">
 
-<div class="container">
+        <section class="station">
+            <h2>🇿🇼 Star FM Zimbabwe</h2>
+            <p class="meta">Zimbabwe — Online Stream</p>
+            <p class="live">🟢 LIVE — Playing now</p>
+            <audio controls preload="none">
+                <source src="https://edge.iono.fm/xice/159_medium.aac" type="audio/aac">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
 
-    <div class="station">
-        <h2>🇿🇼 Star FM Zimbabwe</h2>
-<p>Zimbabwe Online Radio</p>
-        <p class="live">🟢 LIVE — Playing now</p>
+        <section class="station">
+            <h2>🇿🇼 Capitalk 100.4 FM</h2>
+            <p class="meta">Harare — Zimbabwe</p>
+            <p class="live">🟢 LIVE — Playing now</p>
+            <audio controls preload="none">
+                <source src="https://edge.iono.fm/xice/162_medium.aac" type="audio/aac">
+            </audio>
+        </section>
 
-        <audio controls>
-            <source src="https://edge.iono.fm/xice/159_medium.aac" type="audio/aac">
-            Your browser does not support audio.
-        </audio>
-    </div>
-    <div class="station">
-    <h2>🇿🇼 Capitalk 100.4 FM</h2>
-    <p>Harare — Zimbabwe Online Radio</p>
-    <p class="live">🟢 LIVE — Playing now</p>
+        <section class="station">
+            <h2>🇿🇼 Diamond FM 103.8</h2>
+            <p class="meta">Mutare — Zimbabwe</p>
+            <p class="live">🟢 LIVE — Playing now</p>
+            <audio controls preload="none">
+                <source src="https://edge.iono.fm/xice/160_medium.aac" type="audio/aac">
+            </audio>
+        </section>
 
-    <audio controls>
-        <source src="https://edge.iono.fm/xice/162_medium.aac" type="audio/aac">
-        Your browser does not support audio.
-    </audio>
-</div>
-    <div class="station">
-    <h2>🇿🇼 Diamond FM 103.8</h2>
-    <p>Mutare — Zimbabwe Online Radio</p>
-    <p class="live">🟢 LIVE — Playing now</p>
+        <section class="station">
+            <h2>🇿🇼 ZiFM Stereo</h2>
+            <p class="meta">Harare — Zimbabwe</p>
+            <p class="live">🟢 LIVE — Playing now</p>
+            <audio controls preload="none">
+                <source src="https://edge.iono.fm/xice/134_medium.aac" type="audio/aac">
+            </audio>
+        </section>
 
-    <audio controls>
-        <source src="https://edge.iono.fm/xice/160_medium.aac" type="audio/aac">
-        Your browser does not support audio.
-    </audio>
-</div>
-    <div class="station">
-    <h2>🇿🇼 ZiFM Stereo</h2>
-    <p>Harare — Zimbabwe Online Radio</p>
-    <p class="live">🟢 LIVE — Playing now</p>
+        <section class="station">
+            <h2>🇿🇼 Central Radio</h2>
+            <p class="meta">Zimbabwe — 95.8 FM</p>
+            <p class="live">🟢 LIVE — Playing now</p>
+            <audio controls preload="none">
+                <source src="https://centralstream.zbc.co.zw:8000/radio.mp3" type="audio/mpeg">
+            </audio>
+        </section>
 
-    <audio controls>
-        <source src="https://edge.iono.fm/xice/134_medium.aac" type="audio/aac">
-        Your browser does not support audio.
-    </audio>
-</div>
-    <div class="station">
-    <h2>🇿🇼 Central Radio</h2>
-    <p>Zimbabwe Online Radio — 95.8 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
+        <section class="station">
+            <h2>🇿🇼 Power FM</h2>
+            <p class="meta">Zimbabwe</p>
+            <p class="live">🟢 LIVE — Playing now</p>
+            <audio controls preload="none">
+                <source src="https://backupradiostreaming.zbc.co.zw:8000/radio.mp3" type="audio/mpeg">
+            </audio>
+        </section>
 
-    <audio controls>
-        <source src="https://centralstream.zbc.co.zw:8000/radio.mp3" type="audio/mpeg">
-        Your browser does not support the audio player.
-    </audio>
-</div>
-    <div class="station">
-    <h2>🇿🇼 Power FM</h2>
-    <p>Zimbabwe Online Radio</p>
-    <p class="live">🟢 LIVE — Playing now</p>
+        <section class="station">
+            <h2>🇿🇼 National FM</h2>
+            <p class="meta">Zimbabwe</p>
+            <p class="live">🟢 LIVE — Playing now</p>
+            <audio controls preload="none">
+                <source src="https://mainradiostreaming.zbc.co.zw:8020/national.mp3" type="audio/mpeg">
+            </audio>
+        </section>
 
-    <audio controls>
-        <source src="https://backupradiostreaming.zbc.co.zw:8000/radio.mp3" type="audio/mpeg">
-        Your browser does not support the audio player.
-    </audio>
-    </div>
-<div class="station">
-    <h2>🇿🇼 National FM</h2>
-    <p>Zimbabwe Online Radio</p>
-    <p class="live">🟢 LIVE — Playing now</p>
+        <section class="station">
+            <h2>🇿🇼 Radio Zimbabwe</h2>
+            <p class="meta">Nhepfenuro yevanhu — Zimbabwe</p>
+            <p class="live">🟢 LIVE — Playing now</p>
+            <audio controls preload="none">
+                <source src="http://mainradiostreaming.zbc.co.zw:8040/nhepfenuro.mp3" type="audio/mpeg">
+            </audio>
+        </section>
 
-    <audio controls>
-        <source src="https://mainradiostreaming.zbc.co.zw:8020/national.mp3" type="audio/mpeg">
-        Your browser does not support the audio player.
-    </audio>
-</div>
-    <div class="station">
-    <h2>🇿🇼 Radio Zimbabwe</h2>
-    <p>Nhepfenuro yevanhu — Zimbabwe Online Radio</p>
-    <p class="live">🟢 LIVE — Playing now</p>
+        <section class="station">
+            <h2>🇲🇼 Zeno FM</h2>
+            <p class="meta">Malawi — Online Stream</p>
+            <p class="live">🟢 LIVE — Playing now</p>
+            <audio controls preload="none">
+                <source src="https://stream.zeno.fm/0r0xa792kwzuv" type="audio/mpeg">
+            </audio>
+        </section>
 
-    <audio controls>
-        <source src="http://mainradiostreaming.zbc.co.zw:8040/nhepfenuro.mp3" type="audio/mpeg">
-        Your browser does not support the audio player.
-    </audio>
-</div>
-    
-    <div class="station">
-        <h2>🇲🇼 Zeno FM</h2>
-<p>Malawi Online Radio</p>
-        <p class="live">🟢 LIVE — Playing now</p>
+        <!-- Malawi cards remain as radio-card for variety -->
+        <article class="radio-card">
+            <span class="badge">95.1 MHz FM</span>
+            <h2>Zodiak FM 🇲🇼</h2>
+            <p class="location">Lilongwe, Malawi</p>
+            <audio controls preload="none"><source src="https://ice31.securenetsystems.net/0079" type="audio/aac"></audio>
+        </article>
 
-        <audio controls>
-            <source src="https://stream.zeno.fm/0r0xa792kwzuv" type="audio/mpeg">
-            Your browser does not support the audio player.
-        </audio>
-    </div>
-        
-    <!-- Malawi Radio -->
-<div class="radio-card">
-  <span class="badge">95.1 MHz FM</span>
-  <h2>Zodiak FM 🇲🇼</h2>
-  <p class="location">Lilongwe, Malawi</p>
-  <audio controls preload="none">
-    <source src="https://ice31.securenetsystems.net/0079" type="audio/aac">
-    Your browser does not support the audio player.
-  </audio>
-</div>
+        <article class="radio-card">
+            <span class="badge">89.6 / 89.8 MHz FM</span>
+            <h2>Timveni Radio 🇲🇼</h2>
+            <p class="location">Malawi</p>
+            <audio controls preload="none"><source src="https://play.streamafrica.net/timveni" type="audio/aac"></audio>
+        </article>
 
-<div class="radio-card">
-  <span class="badge">89.6 / 89.8 MHz FM</span>
-  <h2>Timveni Radio 🇲🇼</h2>
-  <p class="location">Malawi</p>
-  <audio controls preload="none">
-    <source src="https://play.streamafrica.net/timveni" type="audio/aac">
-    Your browser does not support the audio player.
-  </audio>
-</div>
+        <article class="radio-card">
+            <span class="badge">107.6 MHz FM</span>
+            <h2>Chanco Community Radio 🇲🇼</h2>
+            <p class="location">Zomba, Malawi</p>
+            <audio controls preload="none"><source src="https://live.netradio.pro/listen/chanco/radio.mp3" type="audio/mpeg"></audio>
+        </article>
 
-<div class="radio-card">
-  <span class="badge">107.6 MHz FM</span>
-  <h2>Chanco Community Radio 🇲🇼</h2>
-  <p class="location">Zomba, Malawi</p>
-  <audio controls preload="none">
-    <source src="https://live.netradio.pro/listen/chanco/radio.mp3" type="audio/mpeg">
-    Your browser does not support the audio player.
-  </audio>
-</div>
+        <!-- Remaining Malawi stations (kept as-is) -->
+        <article class="radio-card">
+            <span class="badge">Online Radio</span>
+            <h2>Amaryllis E-Radio 🇲🇼</h2>
+            <p class="location">Malawi</p>
+            <audio controls preload="none"><source src="https://s4.radio.co/s40c05d6b1/low" type="audio/mpeg"></audio>
+        </article>
 
-<div class="radio-card">
-  <span class="badge">Online Radio</span>
-  <h2>Amaryllis E-Radio 🇲🇼</h2>
-  <p class="location">Malawi</p>
-  <audio controls preload="none">
-    <source src="https://s4.radio.co/s40c05d6b1/low" type="audio/mpeg">
-    Your browser does not support the audio player.
-  </audio>
-</div>
+        <article class="radio-card">
+            <span class="badge">92.8 MHz FM</span>
+            <h2>Times Radio Malawi 🇲🇼</h2>
+            <p class="location">Blantyre, Malawi</p>
+            <audio controls preload="none"><source src="https://streamdb9web.securenetsystems.net/cirrusencore/TIMESFM" type="audio/mpeg"></audio>
+        </article>
 
-<div class="radio-card">
-  <span class="badge">92.8 MHz FM</span>
-  <h2>Times Radio Malawi 🇲🇼</h2>
-  <p class="location">Blantyre, Malawi</p>
-  <audio controls preload="none">
-    <source src="https://streamdb9web.securenetsystems.net/cirrusencore/TIMESFM" type="audio/mpeg">
-    Your browser does not support the audio player.
-  </audio>
-</div>
+        <article class="radio-card">
+            <span class="badge">Online Radio</span>
+            <h2>Groove100 FM 🇲🇼</h2>
+            <p class="location">Malawi</p>
+            <audio controls preload="none"><source src="https://stream.zeno.fm/0r0xa792kwzuv" type="audio/mpeg"></audio>
+        </article>
 
-<div class="radio-card">
-  <span class="badge">Online Radio</span>
-  <h2>Groove100 FM 🇲🇼</h2>
-  <p class="location">Malawi</p>
-  <audio controls preload="none">
-    <source src="https://stream.zeno.fm/0r0xa792kwzuv" type="audio/mpeg">
-    Your browser does not support the audio player.
-  </audio>
-</div>
+        <article class="radio-card">
+            <span class="badge">Online Radio</span>
+            <h2>Power Global Media 🇲🇼</h2>
+            <p class="location">Malawi</p>
+            <audio controls preload="none"><source src="https://a10.asurahosting.com:7270/radio.mp3" type="audio/mpeg"></audio>
+        </article>
 
-<div class="radio-card">
-  <span class="badge">Online Radio</span>
-  <h2>Power Global Media 🇲🇼</h2>
-  <p class="location">Malawi</p>
-  <audio controls preload="none">
-    <source src="https://a10.asurahosting.com:7270/radio.mp3" type="audio/mpeg">
-    Your browser does not support the audio player.
-  </audio>
-</div>
+        <article class="radio-card">
+            <span class="badge">Online Radio</span>
+            <h2>Abdulbasit Abdulsamad 🇲🇼</h2>
+            <p class="location">Malawi</p>
+            <audio controls preload="none"><source src="https://radio.mp3islam.com/listen/abdulbasit/radio.mp3" type="audio/mpeg"></audio>
+        </article>
 
-<div class="radio-card">
-  <span class="badge">Online Radio</span>
-  <h2>Abdulbasit Abdulsamad 🇲🇼</h2>
-  <p class="location">Malawi</p>
-  <audio controls preload="none">
-    <source src="https://radio.mp3islam.com/listen/abdulbasit/radio.mp3" type="audio/mpeg">
-    Your browser does not support the audio player.
-  </audio>
-</div>
+        <article class="radio-card">
+            <span class="badge">Malawi</span>
+            <h2>TWR Malawi 🇲🇼</h2>
+            <p class="location">Lilongwe, Malawi</p>
+            <audio controls preload="none"><source src="https://play.streamafrica.net/twr" type="audio/mpeg"></audio>
+        </article>
 
-<div class="radio-card">
-  <span class="badge">Malawi</span>
-  <h2>TWR Malawi 🇲🇼</h2>
-  <p class="location">Lilongwe, Malawi</p>
-  <audio controls preload="none">
-    <source src="https://play.streamafrica.net/twr" type="audio/mpeg">
-    Your browser does not support the audio player.
-  </audio>
-</div>
+        <article class="radio-card">
+            <span class="badge">Malawi</span>
+            <h2>Lilanguka Radio 🇲🇼</h2>
+            <p class="location">Malawi</p>
+            <audio controls preload="none"><source src="https://live.netradio.pro/listen/nguka/radio.mp3" type="audio/mpeg"></audio>
+        </article>
 
-<div class="radio-card">
-  <span class="badge">Malawi</span>
-  <h2>Lilanguka Radio 🇲🇼</h2>
-  <p class="location">Malawi</p>
-  <audio controls preload="none">
-    <source src="https://live.netradio.pro/listen/nguka/radio.mp3" type="audio/mpeg">
-    Your browser does not support the audio player.
-  </audio>
-</div>
+        <article class="radio-card">
+            <span class="badge">Malawi</span>
+            <h2>Chisomo Radio Station 🇲🇼</h2>
+            <p class="location">Salima, Malawi</p>
+            <audio controls preload="none"><source src="https://live.netradio.pro/listen/crs/radio.mp3" type="audio/mpeg"></audio>
+        </article>
 
-<div class="radio-card">
-  <span class="badge">Malawi</span>
-  <h2>Chisomo Radio Station 🇲🇼</h2>
-  <p class="location">Salima, Malawi</p>
-  <audio controls preload="none">
-    <source src="https://live.netradio.pro/listen/crs/radio.mp3" type="audio/mpeg">
-    Your browser does not support the audio player.
-  </audio>
-</div>
+        <section class="station">
+            <h2>🇿🇲 Phoenix FM Zambia</h2>
+            <p class="meta">Zambia — 89.5 FM</p>
+            <p class="live">🟢 LIVE — Playing now</p>
+            <audio controls preload="none"><source src="https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_PHOENIXAAC_SC" type="audio/aac"></audio>
+        </section>
 
-    <div class="station">
-    <h2>🇿🇲 Phoenix FM Zambia</h2>
-    <p>Zambia Online Radio — 89.5 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
+        <!-- Clean, accessible list for other Zambia stations -->
+        <section class="zambia-list" aria-labelledby="zambia-list-title">
+            <h2 id="zambia-list-title">🇿🇲 Additional Zambia Stations (listed)</h2>
+            <ol>
+                <li>🇿🇲 QFM</li>
+                <li>🇿🇲 ZNBC Radio 1</li>
+                <li>🇿🇲 ZNBC Radio 2</li>
+                <li>🇿🇲 ZNBC Radio 4</li>
+                <li>🇿🇲 Hot FM</li>
+                <li>🇿🇲 Radio Christian Voice (RCV)</li>
+                <li>🇿🇲 Power FM</li>
+                <li>🇿🇲 Komboni Radio</li>
+                <li>🇿🇲 Pan African Radio</li>
+                <li>🇿🇲 YAR FM</li>
+            </ol>
+        </section>
 
-    <audio controls>
-        <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_PHOENIXAAC_SC" type="audio/aac">
-        Your browser does not support audio.
-    </audio>
-</div>
+        <!-- Also provide individual station cards for Zambia stations so they render like others -->
+        <section class="station"><h2>🇿🇲 QFM</h2><p class="meta">Zambia — stream/URL coming soon</p></section>
+        <section class="station"><h2>🇿🇲 ZNBC Radio 1</h2><p class="meta">Zambia — stream/URL coming soon</p></section>
+        <section class="station"><h2>🇿🇲 ZNBC Radio 2</h2><p class="meta">Zambia — stream/URL coming soon</p></section>
+        <section class="station"><h2>🇿🇲 ZNBC Radio 4</h2><p class="meta">Zambia — stream/URL coming soon</p></section>
+        <section class="station"><h2>🇿🇲 Hot FM</h2><p class="meta">Zambia — stream/URL coming soon</p></section>
+        <section class="station"><h2>🇿🇲 Radio Christian Voice (RCV)</h2><p class="meta">Zambia — stream/URL coming soon</p></section>
+        <section class="station"><h2>🇿🇲 Power FM</h2><p class="meta">Zambia — stream/URL coming soon</p></section>
+        <section class="station"><h2>🇿🇲 Komboni Radio</h2><p class="meta">Zambia — stream/URL coming soon</p></section>
+        <section class="station"><h2>🇿🇲 Pan African Radio</h2><p class="meta">Zambia — stream/URL coming soon</p></section>
+        <section class="station"><h2>🇿🇲 YAR FM</h2><p class="meta">Zambia — stream/URL coming soon</p></section>
 
-<!-- Wrapped the previously-orphaned list in a proper section + ordered list -->
-<section class="zambia-list">
-  <h2>🇿🇲 Additional Zambia Stations</h2>
-  <ol>
-    <li>QFM</li>
-    <li>ZNBC Radio 1</li>
-    <li>ZNBC Radio 2</li>
-    <li>ZNBC Radio 4</li>
-    <li>Hot FM</li>
-    <li>Radio Christian Voice (RCV)</li>
-    <li>Power FM</li>
-    <li>Komboni Radio</li>
-    <li>Pan African Radio</li>
-    <li>YAR FM</li>
-  </ol>
-</section>
+        <section class="station">
+            <h2>🇿🇦 Metro FM South Africa</h2>
+            <p class="meta">South Africa — Online Stream</p>
+            <p class="live">🟢 LIVE — Playing now</p>
+            <audio controls preload="none"><source src="https://playerservices.streamtheworld.com/api/livestream-redirect/METROFMAAC_SC" type="audio/aac"></audio>
+        </section>
 
-<!-- Also converted each list item into .station blocks for consistent layout -->
-<div class="station">
-  <h2>QFM</h2>
-  <p>Zambia — stream/URL coming soon</p>
-</div>
-<div class="station">
-  <h2>ZNBC Radio 1</h2>
-  <p>Zambia — stream/URL coming soon</p>
-</div>
-<div class="station">
-  <h2>ZNBC Radio 2</h2>
-  <p>Zambia — stream/URL coming soon</p>
-</div>
-<div class="station">
-  <h2>ZNBC Radio 4</h2>
-  <p>Zambia — stream/URL coming soon</p>
-</div>
-<div class="station">
-  <h2>Hot FM</h2>
-  <p>Zambia — stream/URL coming soon</p>
-</div>
-<div class="station">
-  <h2>Radio Christian Voice (RCV)</h2>
-  <p>Zambia — stream/URL coming soon</p>
-</div>
-<div class="station">
-  <h2>Power FM</h2>
-  <p>Zambia — stream/URL coming soon</p>
-</div>
-<div class="station">
-  <h2>Komboni Radio</h2>
-  <p>Zambia — stream/URL coming soon</p>
-</div>
-<div class="station">
-  <h2>Pan African Radio</h2>
-  <p>Zambia — stream/URL coming soon</p>
-</div>
-<div class="station">
-  <h2>YAR FM</h2>
-  <p>Zambia — stream/URL coming soon</p>
-</div>
+        <section class="station">
+            <h2>🌍 Radio54 African Panorama</h2>
+            <p class="meta">African Music & Talk</p>
+            <p class="live">🟢 LIVE — Playing now</p>
+            <audio controls preload="none"><source src="https://stream.shoutcastservices.com/proxy/radio54/stream" type="audio/mpeg"></audio>
+        </section>
 
-    <div class="station">
-    <h2>🇿🇦 Metro FM South Africa</h2>
-    <p>South Africa Online Radio</p>
-    <p class="live">🟢 LIVE — Playing now</p>
+        <div class="coming-soon" role="region" aria-label="More stations coming soon">
+            <h2>🌍 More African Stations Coming Soon</h2>
+            <p>Stay tuned — submit streams/URLs and I can add them with preview players.</p>
+        </div>
 
-    <audio controls>
-        <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/METROFMAAC_SC" type="audio/aac">
-        Your browser does not support audio.
-    </audio>
-</div>
-    <div class="station">
-    <h2>🌍 Radio54 African Panorama</h2>
-    <p>African Music & Talk</p>
-    <p class="live">🟢 LIVE — Playing now</p>
+    </main>
 
-    <audio controls>
-        <source src="https://stream.shoutcastservices.com/proxy/radio54/stream" type="audio/mpeg">
-        Your browser does not support audio.
-    </audio>
-</div>
-
-    <div class="coming-soon">
-        <h2>🌍 More African Stations Coming Soon</h2>
-        <p>Stay tuned for more radio stations from across Africa!</p>
-    </div>
-
-</div>
-
-<footer>
-    © 2026 Africa Online Radio
-</footer>
+    <footer>
+        © 2026 Africa Online Radio
+    </footer>
 
 </body>
 </html>
