@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Africa Online Radio</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background: #e60000;
+            padding: 30px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .station {
+            background: #ffffff;
+            color: #111111;
+            margin: 25px 0;
+            padding: 30px 20px;
+            border-radius: 18px;
+            border: 2px solid #222222;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+        }
+
+        .station h2 {
+            margin-top: 0;
+            color: #111111;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .station p {
+            color: #333333;
+        }
+
+        .live {
+            color: green !important;
+            font-weight: bold;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 20px;
+            height: 45px;
+        }
+
+        .coming-soon {
+            margin: 30px 0;
+            padding: 25px 15px;
+            background: #222;
+            color: white;
+            border-radius: 15px;
+        }
+
+        .coming-soon h2 {
+            margin: 0 0 10px;
+            font-size: 22px;
+        }
+
+        .coming-soon p {
+            margin: 0;
+            color: #ccc;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 20px;
+            background: #222;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📻 Africa Online Radio</h1>
+    <p>Zimbabwe 🇿🇼 & Malawi 🇲🇼</p>
+</header>
+
+<div class="container">
+
+    <div class="station">
+        <h2>🇿🇼 Zimbabwe Radio</h2>
+        <p>Zimbabwe Online Station</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+
+        <audio controls>
+            <source src="https://edge.iono.fm/xice/159_medium.aac" type="audio/aac">
+            Your browser does not support audio.
+        </audio>
+    </div>
+
+    <div class="station">
+        <h2>🇲🇼 Malawi Radio</h2>
+        <p>Malawi Online Station</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+
+        <audio controls>
+            <source src="https://stream.zeno.fm/0r0xa792kwzuv" type="audio/mpeg">
+            Your browser does not support the audio player.
+        </audio>
+    </div>
+
+    <div class="coming-soon">
+        <h2>🌍 More African Stations Coming Soon</h2>
+        <p>Stay tuned for more radio stations from across Africa!</p>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Africa Online Radio
+</footer>
+
+</body>
+</html>
