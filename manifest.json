@@ -2,17 +2,6 @@
   "name": "Africa Online Radio",
   "short_name": "Africa Radio",
   "description": "Zimbabwe and Malawi online radio",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#111111",
-  "theme_color": "#e60000",
-  "orientation": "portrait",
-  "icons": [
-    {
-    {
-  "name": "Africa Online Radio",
-  "short_name": "Africa Radio",
-  "description": "Zimbabwe and Malawi online radio",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#111111",
@@ -32,10 +21,3 @@
     }
   ]
 }
-
-      "sizes": "512x512",
-      "type": "image/jpeg"
-    }
-  ]
-}
-
