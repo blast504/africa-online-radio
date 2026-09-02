@@ -186,26 +186,15 @@
     </audio>
 </div>
     <div class="station">
-    <h2>🇿🇼 Khulumani FM 95.0</h2>
-    <p>Zimbabwe Online Radio</p>
-    <p class="live">🟢 LIVE — Khulumani FM</p>
+    <h2>🇿🇼 YaFM 91.8</h2>
+    <p>Zimbabwe Online Radio — Pulse of the Great Dyke</p>
+    <p class="live">🟢 LIVE — YaFM</p>
 
-    <audio id="khulumaniPlayer" controls preload="none">
-        <source src="https://stream.zeno.fm/khulumani-fm" type="audio/mpeg">
-        <source src="https://stream.zeno.fm/khulumani-fm-95-0" type="audio/mpeg">
+    <audio controls preload="none">
+        <source src="http://173.212.241.223:8000/;stream.mp3" type="audio/mpeg">
         Your browser does not support audio playback.
     </audio>
 </div>
-
-<script>
-    const player = document.getElementById('khulumaniPlayer');
-
-    player.addEventListener('play', () => {
-        if (player.readyState === 0) {
-            player.load();
-        }
-    });
-</script>
 
 
     <div class="station">
