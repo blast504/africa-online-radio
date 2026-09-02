@@ -197,6 +197,45 @@
     <source src="PASTE-LUZIBO-STREAM-HERE" type="audio/mpeg">
     Your browser does not support the audio player.
 </audio>
+    
+  <div class="radio-card">
+    <span class="badge">107.3 MHz FM</span>
+    <h1>Lyeja FM</h1>
+    <p class="location">Hwange & Victoria Falls, Zimbabwe</p>
+
+    <!-- HTML5 HTTPS Audio Stream -->
+    <audio id="lyejaPlayer" controls preload="none">
+      <source src="https://stream.zeno.fm/lyejafm" type="audio/mpeg">
+      <source src="https://stream.zeno.fm/lyeja-fm" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <div id="status" class="status-text">Ready to play</div>
+  </div>
+
+  <script>
+    const player = document.getElementById('lyejaPlayer');
+    const statusText = document.getElementById('status');
+
+    // Force buffer reload on play to prevent stale connections on GitHub Pages
+    player.addEventListener('play', () => {
+      statusText.innerText = "Connecting to live stream...";
+      if (player.readyState === 0) {
+        player.load();
+      }
+    });
+
+    player.addEventListener('playing', () => {
+      statusText.innerText = "● LIVE Broadcasting";
+      statusText.style.color = "#34d399";
+    });
+
+    player.addEventListener('error', () => {
+      statusText.innerText = "Stream temporarily offline or updating";
+      statusText.style.color = "#f87171";
+    });
+  </script>
+
 
 
     <div class="station">
