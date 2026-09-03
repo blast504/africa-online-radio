@@ -300,11 +300,38 @@
         </section>
 
         <section class="station">
-            <h2>🇿🇲 Pan African Radio</h2>
-            <p class="meta">Lusaka — 96.1 FM</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://stream.zeno.fm/pan-african-radio" type="audio/mpeg"></audio>
-        </section>
+  <h2>🇿🇲 Pan African Radio</h2>
+  <p class="meta">Lusaka — 96.1 FM</p>
+  <p class="live">🟢 LIVE — Playing now</p>
+  <audio controls preload="none" crossorigin="anonymous">
+    <source src="https://stream.zeno.fm/pan-african-radio" type="audio/mpeg">
+  </audio>
+</section>
+
+<!-- Global controls -->
+<button class="global-btn" onclick="playAll()">▶️ Play All Stations</button>
+<button class="global-btn" onclick="pauseAll()">⏸️ Pause All Stations</button>
+
+<script>
+  function playAll() {
+    const players = document.querySelectorAll('audio');
+    players.forEach(player => {
+      player.play().catch(err => {
+        console.log('Playback blocked:', err);
+      });
+    });
+  }
+
+  function pauseAll() {
+    const players = document.querySelectorAll('audio');
+    players.forEach(player => {
+      player.pause();
+    });
+  }
+</script>
+</body>
+</html>
+
 
         <section class="station">
             <h2>🇿🇦 Metro FM South Africa</h2>
