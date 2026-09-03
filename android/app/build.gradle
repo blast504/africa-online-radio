@@ -1,1 +1,19 @@
+plugins {
+    id 'com.android.application'
+}
 
+android {
+    namespace 'com.africaonlineradio.app'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'com.africaonlineradio.app'
+        minSdk 23
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+}
