@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,7 @@
     <link rel="apple-touch-icon" href="africa-online-radio-logo.png">
     <link rel="manifest" href="manifest.json">
     <title>Africa Online Radio</title>
+
     <style>
         :root{
             --card-bg: #ffffff;
@@ -17,26 +19,47 @@
             --accent: #e60000;
         }
 
-        /* Layout */
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background: var(--page-bg);
             color: #fff;
             text-align: center;
-            -webkit-font-smoothing:antialiased;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container{ max-width: 900px; margin: 0 auto; padding: 20px; }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-        header{ background: var(--accent); padding: 28px 16px; color: #fff; }
-        header h1{ margin: 0; font-size: 28px; }
-        header p.tagline{ margin: 8px 0 0; color: rgba(255,255,255,0.95); font-size: 15px; }
+        header {
+            background: var(--accent);
+            padding: 28px 16px;
+            color: #fff;
+        }
 
-        .logo{ width:140px; height:auto; display:block; margin:12px auto; }
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
 
-        /* Station card */
-        .station, .radio-card{
+        header p.tagline {
+            margin: 8px 0 0;
+            color: rgba(255,255,255,0.95);
+            font-size: 15px;
+        }
+
+        .logo {
+            width: 140px;
+            height: auto;
+            display: block;
+            margin: 12px auto;
+        }
+
+        .station,
+        .radio-card {
             background: var(--card-bg);
             color: var(--card-text);
             margin: 20px 0;
@@ -44,548 +67,633 @@
             border-radius: 14px;
             border: 1px solid rgba(0,0,0,0.35);
             box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-            text-align:left;
+            text-align: left;
         }
 
-        .station h2, .radio-card h2{ margin: 0 0 8px; font-size:20px; }
-        .station p, .radio-card p{ margin:0 0 8px; color: #333; }
-        .station .meta{ color: var(--muted); font-size:14px; }
+        .station h2,
+        .radio-card h2 {
+            margin: 0 0 8px;
+            font-size: 20px;
+        }
 
-        .live { color: #0a8f0a; font-weight:700; }
-        .soon { color: #ff8c00; font-weight:700; }
+        .station p,
+        .radio-card p {
+            margin: 0 0 8px;
+            color: #333;
+        }
 
-        audio{ width:100%; max-width:100%; margin-top:12px; background:#000; border-radius:6px; }
+        .station .meta {
+            color: var(--muted);
+            font-size: 14px;
+        }
 
-        .badge{ display:inline-block; background:#eee; color:#111; padding:4px 8px; border-radius:10px; font-size:13px; margin-bottom:8px; }
-        .location{ color: var(--muted); font-size:14px; margin-bottom:6px; }
+        .live {
+            color: #0a8f0a !important;
+            font-weight: 700;
+        }
 
-        .station a { color: var(--accent); text-decoration: none; }
+        .soon {
+            color: #ff8c00 !important;
+            font-weight: 700;
+        }
 
-        .coming-soon{ margin:24px 0; padding:18px; background:#222; color:#fff; border-radius:10px; }
+        audio {
+            width: 100%;
+            max-width: 100%;
+            margin-top: 12px;
+            background: #000;
+            border-radius: 6px;
+        }
 
-        footer{ margin-top:30px; padding:18px; background:#222; color:#aaa; }
+        .badge {
+            display: inline-block;
+            background: #eee;
+            color: #111;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
 
-        /* Responsive */
-        @media (max-width:600px){
-            .container{ padding:12px; }
-            .station, .radio-card{ padding:16px; }
-            header h1{ font-size:20px; }
+        .location {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .station a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .coming-soon {
+            margin: 24px 0;
+            padding: 18px;
+            background: #222;
+            color: #fff;
+            border-radius: 10px;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 18px;
+            background: #222;
+            color: #aaa;
+        }
+
+        .global-btn {
+            display: inline-block;
+            margin: 10px 5px;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            background: var(--accent);
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (max-width:600px) {
+            .container {
+                padding: 12px;
+            }
+
+            .station,
+            .radio-card {
+                padding: 16px;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <img src="africa-online-radio-logo.png" alt="Africa Online Radio" class="logo">
-        <h1>Africa Online Radio</h1>
-        <p class="tagline">Live radio from Zimbabwe • Malawi • Zambia • South Africa — curated and playable in your browser</p>
-    </header>
 
-    <main class="container" role="main">
+<header>
+    <img src="africa-online-radio-logo.png" alt="Africa Online Radio" class="logo">
+    <h1>Africa Online Radio</h1>
+    <p class="tagline">
+        Live radio from Zimbabwe • Malawi • Zambia • South Africa — curated and playable in your browser
+    </p>
+</header>
 
-        <section class="station">
-            <h2>🇿🇼 Star FM Zimbabwe</h2>
-            <p class="meta">Zimbabwe — Online Stream</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none">
-                <source src="https://edge.iono.fm/xice/159_medium.aac" type="audio/aac">
-                Your browser does not support the audio element.
-            </audio>
-        </section>
+<main class="container" role="main">
 
-        <section class="station">
-    <h2>🇿🇼 Nehanda Radio</h2>
-    <p class="meta">Harare — Online Radio</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://eu4.fastcast4u.com/proxy/lancguma?mp=/1" type="audio/mpeg">
-    </audio>
-</section>
+    <!-- ZIMBABWE -->
 
-        <section class="station">
-            <h2>🇿🇼 Capitalk 100.4 FM</h2>
-            <p class="meta">Harare — Zimbabwe</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none">
-                <source src="https://edge.iono.fm/xice/162_medium.aac" type="audio/aac">
-            </audio>
-        </section>
+    <section class="station">
+        <h2>🇿🇼 Star FM Zimbabwe</h2>
+        <p class="meta">Zimbabwe — Online Stream</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://edge.iono.fm/xice/159_medium.aac" type="audio/aac">
+        </audio>
+    </section>
 
-        <section class="station">
-    <h2>🇿🇼 Ntepe-Manama FM</h2>
-    <p class="meta">Gwanda — 97.0 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://stream.zeno.fm/ntepe-manama" type="audio/mpeg">
-    </audio>
-</section>
+    <section class="station">
+        <h2>🇿🇼 Nehanda Radio</h2>
+        <p class="meta">Harare — Online Radio</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://eu4.fastcast4u.com/proxy/lancguma?mp=/1" type="audio/mpeg">
+        </audio>
+    </section>
 
-        <section class="station">
-            <h2>🇿🇼 Diamond FM 103.8</h2>
-            <p class="meta">Mutare — Zimbabwe</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none">
-                <source src="https://edge.iono.fm/xice/160_medium.aac" type="audio/aac">
-            </audio>
-        </section>
+    <section class="station">
+        <h2>🇿🇼 Capitalk 100.4 FM</h2>
+        <p class="meta">Harare — Zimbabwe</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://edge.iono.fm/xice/162_medium.aac" type="audio/aac">
+        </audio>
+    </section>
 
-        <section class="station">
-            <h2>🇿🇼 ZiFM Stereo</h2>
-            <p class="meta">Harare — Zimbabwe</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none">
-                <source src="https://edge.iono.fm/xice/134_medium.aac" type="audio/aac">
-            </audio>
-        </section>
+    <section class="station">
+        <h2>🇿🇼 Ntepe-Manama FM</h2>
+        <p class="meta">Gwanda — 97.0 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://stream.zeno.fm/ntepe-manama" type="audio/mpeg">
+        </audio>
+    </section>
 
-        <section class="station">
-            <h2>🇿🇼 Central Radio</h2>
-            <p class="meta">Zimbabwe — 95.8 FM</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none">
-                <source src="https://centralstream.zbc.co.zw:8000/radio.mp3" type="audio/mpeg">
-            </audio>
-        </section>
+    <section class="station">
+        <h2>🇿🇼 Diamond FM 103.8</h2>
+        <p class="meta">Mutare — Zimbabwe</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://edge.iono.fm/xice/160_medium.aac" type="audio/aac">
+        </audio>
+    </section>
 
-        <section class="station">
-            <h2>🇿🇼 Power FM</h2>
-            <p class="meta">Zimbabwe</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none">
-                <source src="https://backupradiostreaming.zbc.co.zw:8000/radio.mp3" type="audio/mpeg">
-            </audio>
-        </section>
+    <section class="station">
+        <h2>🇿🇼 ZiFM Stereo</h2>
+        <p class="meta">Harare — Zimbabwe</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://edge.iono.fm/xice/134_medium.aac" type="audio/aac">
+        </audio>
+    </section>
 
-        <section class="station">
-            <h2>🇿🇼 National FM</h2>
-            <p class="meta">Zimbabwe</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none">
-                <source src="https://mainradiostreaming.zbc.co.zw:8020/national.mp3" type="audio/mpeg">
-            </audio>
-        </section>
+    <section class="station">
+        <h2>🇿🇼 Central Radio</h2>
+        <p class="meta">Zimbabwe — 95.8 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://centralstream.zbc.co.zw:8000/radio.mp3" type="audio/mpeg">
+        </audio>
+    </section>
 
-        <section class="station">
-            <h2>🇿🇼 Radio Zimbabwe</h2>
-            <p class="meta">Nhepfenuro yevanhu — Zimbabwe</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none">
-                <source src="http://mainradiostreaming.zbc.co.zw:8040/nhepfenuro.mp3" type="audio/mpeg">
-            </audio>
-        </section>
+    <section class="station">
+        <h2>🇿🇼 Power FM</h2>
+        <p class="meta">Zimbabwe</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://backupradiostreaming.zbc.co.zw:8000/radio.mp3" type="audio/mpeg">
+        </audio>
+    </section>
 
-        <section class="station">
-            <h2>🇲🇼 Zeno FM</h2>
-            <p class="meta">Malawi — Online Stream</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none">
-                <source src="https://stream.zeno.fm/0r0xa792kwzuv" type="audio/mpeg">
-            </audio>
-        </section>
+    <section class="station">
+        <h2>🇿🇼 National FM</h2>
+        <p class="meta">Zimbabwe</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://mainradiostreaming.zbc.co.zw:8020/national.mp3" type="audio/mpeg">
+        </audio>
+    </section>
 
-        <!-- Malawi cards remain as radio-card for variety -->
-        <article class="radio-card">
-            <span class="badge">95.1 MHz FM</span>
-            <h2>Zodiak FM 🇲🇼</h2>
-            <p class="location">Lilongwe, Malawi</p>
-            <audio controls preload="none"><source src="https://ice31.securenetsystems.net/0079" type="audio/aac"></audio>
-        </article>
-
-        <section class="station">
-    <h2>🇲🇼 Mdubs Entertainment</h2>
-    <p class="meta">Malawi — Online Radio</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://stream.zeno.fm/ogxfqt7gumguv" type="audio/mpeg">
-    </audio>
-</section>
-
-        <article class="radio-card">
-            <span class="badge">89.6 / 89.8 MHz FM</span>
-            <h2>Timveni Radio 🇲🇼</h2>
-            <p class="location">Malawi</p>
-            <audio controls preload="none"><source src="https://play.streamafrica.net/timveni" type="audio/aac"></audio>
-        </article>
-
-        <article class="radio-card">
-            <span class="badge">107.6 MHz FM</span>
-            <h2>Chanco Community Radio 🇲🇼</h2>
-            <p class="location">Zomba, Malawi</p>
-            <audio controls preload="none"><source src="https://live.netradio.pro/listen/chanco/radio.mp3" type="audio/mpeg"></audio>
-        </article>
-
-        <!-- Remaining Malawi stations (kept as-is) -->
-        <article class="radio-card">
-            <span class="badge">Online Radio</span>
-            <h2>Amaryllis E-Radio 🇲🇼</h2>
-            <p class="location">Malawi</p>
-            <audio controls preload="none"><source src="https://s4.radio.co/s40c05d6b1/low" type="audio/mpeg"></audio>
-        </article>
-
-        <section class="station">
-    <h2>🇲🇼 Times Radio Malawi</h2>
-    <p class="meta">Blantyre — 92.8 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://streamdb9web.securenetsystems.net/cirrusencore/TIMESFM" type="audio/mpeg">
-    </audio>
-</section>
-            
+    <section class="station">
+        <h2>🇿🇼 Radio Zimbabwe</h2>
+        <p class="meta">Nhepfenuro yevanhu — Zimbabwe</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="http://mainradiostreaming.zbc.co.zw:8040/nhepfenuro.mp3" type="audio/mpeg">
+        </audio>
+    </section>
 
 
-        <article class="radio-card">
-            <span class="badge">Online Radio</span>
-            <h2>Groove100 FM 🇲🇼</h2>
-            <p class="location">Malawi</p>
-            <audio controls preload="none"><source src="https://stream.zeno.fm/0r0xa792kwzuv" type="audio/mpeg"></audio>
-        </article>
+    <!-- MALAWI -->
 
-        <article class="radio-card">
-            <span class="badge">Online Radio</span>
-            <h2>Power Global Media 🇲🇼</h2>
-            <p class="location">Malawi</p>
-            <audio controls preload="none"><source src="https://a10.asurahosting.com:7270/radio.mp3" type="audio/mpeg"></audio>
-        </article>
+    <section class="station">
+        <h2>🇲🇼 Zeno FM</h2>
+        <p class="meta">Malawi — Online Stream</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://stream.zeno.fm/0r0xa792kwzuv" type="audio/mpeg">
+        </audio>
+    </section>
 
-        <article class="radio-card">
-            <span class="badge">Online Radio</span>
-            <h2>Abdulbasit Abdulsamad 🇲🇼</h2>
-            <p class="location">Malawi</p>
-            <audio controls preload="none"><source src="https://radio.mp3islam.com/listen/abdulbasit/radio.mp3" type="audio/mpeg"></audio>
-        </article>
+    <article class="radio-card">
+        <span class="badge">95.1 MHz FM</span>
+        <h2>Zodiak FM 🇲🇼</h2>
+        <p class="location">Lilongwe, Malawi</p>
+        <audio controls preload="none">
+            <source src="https://ice31.securenetsystems.net/0079" type="audio/aac">
+        </audio>
+    </article>
 
-        <article class="radio-card">
-            <span class="badge">Malawi</span>
-            <h2>TWR Malawi 🇲🇼</h2>
-            <p class="location">Lilongwe, Malawi</p>
-            <audio controls preload="none"><source src="https://play.streamafrica.net/twr" type="audio/mpeg"></audio>
-        </article>
+    <section class="station">
+        <h2>🇲🇼 Mdubs Entertainment</h2>
+        <p class="meta">Malawi — Online Radio</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://stream.zeno.fm/ogxfqt7gumguv" type="audio/mpeg">
+        </audio>
+    </section>
 
-        <article class="radio-card">
-            <span class="badge">Malawi</span>
-            <h2>Lilanguka Radio 🇲🇼</h2>
-            <p class="location">Malawi</p>
-            <audio controls preload="none"><source src="https://live.netradio.pro/listen/nguka/radio.mp3" type="audio/mpeg"></audio>
-        </article>
+    <article class="radio-card">
+        <span class="badge">89.6 / 89.8 MHz FM</span>
+        <h2>Timveni Radio 🇲🇼</h2>
+        <p class="location">Malawi</p>
+        <audio controls preload="none">
+            <source src="https://play.streamafrica.net/timveni" type="audio/aac">
+        </audio>
+    </article>
 
-        <article class="radio-card">
-            <span class="badge">Malawi</span>
-            <h2>Chisomo Radio Station 🇲🇼</h2>
-            <p class="location">Salima, Malawi</p>
-            <audio controls preload="none"><source src="https://live.netradio.pro/listen/crs/radio.mp3" type="audio/mpeg"></audio>
-        </article>
+    <article class="radio-card">
+        <span class="badge">107.6 MHz FM</span>
+        <h2>Chanco Community Radio 🇲🇼</h2>
+        <p class="location">Zomba, Malawi</p>
+        <audio controls preload="none">
+            <source src="https://live.netradio.pro/listen/chanco/radio.mp3" type="audio/mpeg">
+        </audio>
+    </article>
 
-        <section class="station">
-            <h2>🇿🇲 Phoenix FM Zambia</h2>
-            <p class="meta">Zambia — 89.5 FM</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_PHOENIXAAC_SC" type="audio/aac"></audio>
-        </section>
+    <article class="radio-card">
+        <span class="badge">Online Radio</span>
+        <h2>Amaryllis E-Radio 🇲🇼</h2>
+        <p class="location">Malawi</p>
+        <audio controls preload="none">
+            <source src="https://s4.radio.co/s40c05d6b1/low" type="audio/mpeg">
+        </audio>
+    </article>
 
-        <section class="station">
-            <h2>🇿🇲 Radio 4</h2>
-            <p class="meta">Lusaka — National Radio</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://stream.zeno.fm/znbc-radio-4" type="audio/mpeg"></audio>
-        </section>
+    <section class="station">
+        <h2>🇲🇼 Times Radio Malawi</h2>
+        <p class="meta">Blantyre — 92.8 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://streamdb9web.securenetsystems.net/cirrusencore/TIMESFM" type="audio/mpeg">
+        </audio>
+    </section>
 
-        <section class="station">
-            <h2>🇿🇲 Radio 2</h2>
-            <p class="meta">Lusaka — National Radio</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://stream.zeno.fm/znbc-radio-2" type="audio/mpeg"></audio>
-        </section>
+    <article class="radio-card">
+        <span class="badge">Online Radio</span>
+        <h2>Groove100 FM 🇲🇼</h2>
+        <p class="location">Malawi</p>
+        <audio controls preload="none">
+            <source src="https://stream.zeno.fm/0r0xa792kwzuv" type="audio/mpeg">
+        </audio>
+    </article>
 
-        <section class="station">
-    <h2>🇿🇲 Hot FM</h2>
-    <p class="meta">Lusaka — 87.7 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="http://s2.yesstreaming.net:7091/stream" type="audio/mpeg">
-    </audio>
-</section>
-        
-        <section class="station">
-    <h2>🇿🇲 I Am Catholic Zambia</h2>
-    <p class="meta">Lusaka — Online Radio</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://ec4.yesstreaming.net:2015/stream" type="audio/mpeg">
-    </audio>
-</section>
+    <article class="radio-card">
+        <span class="badge">Online Radio</span>
+        <h2>Power Global Media 🇲🇼</h2>
+        <p class="location">Malawi</p>
+        <audio controls preload="none">
+            <source src="https://a10.asurahosting.com:7270/radio.mp3" type="audio/mpeg">
+        </audio>
+    </article>
 
-        <section class="station">
-    <h2>🇿🇲 Q FM</h2>
-    <p class="meta">Lusaka — 94.1 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://s3.myradiostream.com:7620/listen.mp3" type="audio/mpeg">
-    </audio>
-</section>
+    <article class="radio-card">
+        <span class="badge">Online Radio</span>
+        <h2>Abdulbasit Abdulsamad 🇲🇼</h2>
+        <p class="location">Malawi</p>
+        <audio controls preload="none">
+            <source src="https://radio.mp3islam.com/listen/abdulbasit/radio.mp3" type="audio/mpeg">
+        </audio>
+    </article>
 
-        <section class="station">
-    <h2>🇿🇲 iWave FM</h2>
-    <p class="meta">Chingola — 90.1 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://s47.myradiostream.com/9934/listen.mp3" type="audio/mpeg">
-    </audio>
-</section>
-            
-            
-            
-            
-        
+    <article class="radio-card">
+        <span class="badge">Malawi</span>
+        <h2>TWR Malawi 🇲🇼</h2>
+        <p class="location">Lilongwe, Malawi</p>
+        <audio controls preload="none">
+            <source src="https://play.streamafrica.net/twr" type="audio/mpeg">
+        </audio>
+    </article>
 
-        <section class="station">
-    <h2>🇿🇲 Radio Christian Voice</h2>
-    <p class="meta">Lusaka — 106.1 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://streaming.shoutcast.com/rcv" type="audio/mpeg">
-    </audio>
-</section>
-        
-        <section class="station">
-    <h2>🇿🇲 One Love Radio</h2>
-    <p class="meta">Lusaka — 104.1 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://usa11.fastcast4u.com/proxy/thidhzuy?mp=/1" type="audio/mpeg">
-    </audio>
-</section>
-            
-            
-            
-            
-        
+    <article class="radio-card">
+        <span class="badge">Malawi</span>
+        <h2>Lilanguka Radio 🇲🇼</h2>
+        <p class="location">Malawi</p>
+        <audio controls preload="none">
+            <source src="https://live.netradio.pro/listen/nguka/radio.mp3" type="audio/mpeg">
+        </audio>
+    </article>
 
-        <section class="station">
-            <h2>🇿🇲 Power FM Zambia</h2>
-            <p class="meta">Lusaka — 98.8 FM</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://stream.zeno.fm/power-fm-zambia" type="audio/mpeg"></audio>
-        </section>
+    <article class="radio-card">
+        <span class="badge">Malawi</span>
+        <h2>Chisomo Radio Station 🇲🇼</h2>
+        <p class="location">Salima, Malawi</p>
+        <audio controls preload="none">
+            <source src="https://live.netradio.pro/listen/crs/radio.mp3" type="audio/mpeg">
+        </audio>
+    </article>
 
-        <section class="station">
-            <h2>🇿🇲 YAR FM</h2>
-            <p class="meta">Kitwe — 89.7 FM</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://stream.zeno.fm/yar-fm" type="audio/mpeg"></audio>
-        </section>
 
-        <section class="station">
-            <h2>🇿🇲 Komboni Radio</h2>
-            <p class="meta">Lusaka — Community Radio</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://stream.zeno.fm/komboni-radio" type="audio/mpeg"></audio>
-        </section>
+    <!-- ZAMBIA -->
 
-        <section class="station">
-  <h2>🇿🇲 Pan African Radio</h2>
-  <p class="meta">Lusaka — 96.1 FM</p>
-  <p class="live">🟢 LIVE — Playing now</p>
-  <audio controls preload="none">
-  <source src="https://stream.zeno.fm/iyixhiejbv1vv.m3u" type="audio/mpeg">
-</audio>
-    
-</section>
+    <section class="station">
+        <h2>🇿🇲 Phoenix FM Zambia</h2>
+        <p class="meta">Zambia — 89.5 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_PHOENIXAAC_SC" type="audio/aac">
+        </audio>
+    </section>
 
-<!-- Global controls -->
-<button class="global-btn" onclick="playAll()">▶️ Play All Stations</button>
-<button class="global-btn" onclick="pauseAll()">⏸️ Pause All Stations</button>
+    <section class="station">
+        <h2>🇿🇲 Radio 4</h2>
+        <p class="meta">Lusaka — National Radio</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://stream.zeno.fm/znbc-radio-4" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇲 Radio 2</h2>
+        <p class="meta">Lusaka — National Radio</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://stream.zeno.fm/znbc-radio-2" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇲 Hot FM</h2>
+        <p class="meta">Lusaka — 87.7 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="http://s2.yesstreaming.net:7091/stream" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇲 I Am Catholic Zambia</h2>
+        <p class="meta">Lusaka — Online Radio</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://ec4.yesstreaming.net:2015/stream" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇲 Q FM</h2>
+        <p class="meta">Lusaka — 94.1 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://s3.myradiostream.com:7620/listen.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇲 iWave FM</h2>
+        <p class="meta">Chingola — 90.1 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://s47.myradiostream.com/9934/listen.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇲 Radio Christian Voice</h2>
+        <p class="meta">Lusaka — 106.1 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://streaming.shoutcast.com/rcv" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇲 One Love Radio</h2>
+        <p class="meta">Lusaka — 104.1 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://usa11.fastcast4u.com/proxy/thidhzuy?mp=/1" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇲 Power FM Zambia</h2>
+        <p class="meta">Lusaka — 98.8 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://stream.zeno.fm/power-fm-zambia" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇲 YAR FM</h2>
+        <p class="meta">Kitwe — 89.7 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://stream.zeno.fm/yar-fm" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇲 Komboni Radio</h2>
+        <p class="meta">Lusaka — Community Radio</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://stream.zeno.fm/komboni-radio" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇲 Pan African Radio</h2>
+        <p class="meta">Lusaka — 96.1 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://stream.zeno.fm/iyixhiejbv1vv.m3u" type="audio/mpeg">
+        </audio>
+    </section>
+
+
+    <!-- SOUTH AFRICA -->
+
+    <section class="station">
+        <h2>🇿🇦 Metro FM South Africa</h2>
+        <p class="meta">South Africa — Online Stream</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/METROFMAAC_SC" type="audio/aac">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 5FM</h2>
+        <p class="meta">Johannesburg — 98.0 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/5FMAAC.aac" type="audio/aac">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 947</h2>
+        <p class="meta">Johannesburg — 94.7 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://25583.live.streamtheworld.com/FM947_192AAC.aac" type="audio/aac">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 Jacaranda FM</h2>
+        <p class="meta">Johannesburg — 94.2 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://edge.iono.fm/xice/jacarandafm_live_medium.aac" type="audio/aac">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 SAfm</h2>
+        <p class="meta">Johannesburg — SABC National</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://edge.iono.fm/xice/safm_live_medium.aac" type="audio/aac">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 East Coast Radio</h2>
+        <p class="meta">Durban — 94.0 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://edge.iono.fm/xice/ecr_live_medium.aac" type="audio/aac">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 Radio 702</h2>
+        <p class="meta">Johannesburg — 92.7 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/FM702_192AAC.aac" type="audio/aac">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 CapeTalk 567</h2>
+        <p class="meta">Cape Town — 567 AM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/CAPE_TALK.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 Umhlobo Wenene FM</h2>
+        <p class="meta">South Africa — SABC Xhosa</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://edge.iono.fm/xice/umhlobowenenefm_live_medium.aac" type="audio/aac">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 Thobela FM</h2>
+        <p class="meta">Polokwane — 87.6-92.1 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/THOBELAAAC_SC" type="audio/aac">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 Kaya FM</h2>
+        <p class="meta">Johannesburg — 95.9 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://edge.iono.fm/xice/82_medium.aac" type="audio/aac">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 Heart FM</h2>
+        <p class="meta">Cape Town — 104.9 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://iceant.antfarm.co.za/heartfm_mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 Lesedi FM</h2>
+        <p class="meta">South Africa — SABC Regional</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://edge.iono.fm/xice/106_medium.aac" type="audio/aac">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 Link FM</h2>
+        <p class="meta">East London — 97.1 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://de2.streamingpulse.com/ssl/LinkFM" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🇿🇦 Pretoria FM</h2>
+        <p class="meta">Pretoria — 104.2 FM</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://edge.iono.fm/xice/362_medium.aac" type="audio/aac">
+        </audio>
+    </section>
+
+    <section class="station">
+        <h2>🌍 Radio54 African Panorama</h2>
+        <p class="meta">African Music & Talk</p>
+        <p class="live">🟢 LIVE — Playing now</p>
+        <audio controls preload="none">
+            <source src="https://stream.shoutcastservices.com/proxy/radio54/stream" type="audio/mpeg">
+        </audio>
+    </section>
+
+
+    <!-- GLOBAL CONTROLS -->
+
+    <button class="global-btn" onclick="playAll()">▶️ Play All Stations</button>
+    <button class="global-btn" onclick="pauseAll()">⏸️ Pause All Stations</button>
+
+</main>
+
+<footer>
+    <p>Africa Online Radio © 2026</p>
+</footer>
 
 <script>
-  function playAll() {
-    const players = document.querySelectorAll('audio');
-    players.forEach(player => {
-      player.play().catch(err => {
-        console.log('Playback blocked:', err);
-      });
-    });
-  }
+    function playAll() {
+        const players = document.querySelectorAll('audio');
 
-  function pauseAll() {
-    const players = document.querySelectorAll('audio');
-    players.forEach(player => {
-      player.pause();
-    });
-  }
+        players.forEach(player => {
+            player.play().catch(err => {
+                console.log('Playback blocked:', err);
+            });
+        });
+    }
+
+    function pauseAll() {
+        const players = document.querySelectorAll('audio');
+
+        players.forEach(player => {
+            player.pause();
+        });
+    }
 </script>
-</body>
-</html>
-
-
-        <section class="station">
-            <h2>🇿🇦 Metro FM South Africa</h2>
-            <p class="meta">South Africa — Online Stream</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://playerservices.streamtheworld.com/api/livestream-redirect/METROFMAAC_SC" type="audio/aac"></audio>
-        </section>
-
-        <section class="station">
-    <h2>🇿🇦 5FM</h2>
-    <p class="meta">Johannesburg — 98.0 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/5FMAAC.aac" type="audio/aac">
-    </audio>
-</section>
-            
-            
-            
-            
-
-
-        <section class="station">
-    <h2>🇿🇦 947</h2>
-    <p class="meta">Johannesburg — 94.7 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://25583.live.streamtheworld.com/FM947_192AAC.aac" type="audio/aac">
-    </audio>
-</section>
-            
-            
-            
-            
-        
-
-        <section class="station">
-    <h2>🇿🇦 Jacaranda FM</h2>
-    <p class="meta">Johannesburg — 94.2 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://edge.iono.fm/xice/jacarandafm_live_medium.aac" type="audio/aac">
-    </audio>
-</section>
-            
-            
-            
-            
-
-        <section class="station">
-            <h2>🇿🇦 SAfm</h2>
-            <p class="meta">Johannesburg — SABC National</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://edge.iono.fm/xice/safm_live_medium.aac" type="audio/aac"></audio>
-        </section>
-
-        <section class="station">
-    <h2>🇿🇦 East Coast Radio</h2>
-    <p class="meta">Durban — 94.0 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://edge.iono.fm/xice/ecr_live_medium.aac" type="audio/aac">
-    </audio>
-</section>
-
-
-            <section class="station">
-    <h2>🇿🇦 Radio 702</h2>
-    <p class="meta">Johannesburg — 92.7 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/FM702_192AAC.aac" type="audio/aac">
-    </audio>
-</section>
-            
-            
-            
-            
-        
-
-            
-            
-            
-            
-        
-
-        <section class="station">
-    <h2>🇿🇦 CapeTalk 567</h2>
-    <p class="meta">Cape Town — 567 AM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/CAPE_TALK.mp3" type="audio/mpeg">
-    </audio>
-</section>
-            
-            
-            
-            
-        
-
-        <section class="station">
-            <h2>🇿🇦 Umhlobo Wenene FM</h2>
-            <p class="meta">South Africa — SABC Xhosa</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://edge.iono.fm/xice/umhlobowenenefm_live_medium.aac" type="audio/aac"></audio>
-        </section>
-
-        <section class="station">
-    <h2>🇿🇦 Thobela FM</h2>
-    <p class="meta">Polokwane — 87.6-92.1 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/THOBELAAAC_SC" type="audio/aac">
-    </audio>
-</section>
-            
-<section class="station">
-            <h2>🇿🇦 Kaya FM</h2>
-            <p class="meta">Johannesburg — 95.9 FM</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://edge.iono.fm/xice/82_medium.aac" type="audio/aac"></audio>
-        </section>
-
-        <section class="station">
-            <h2>🇿🇦 Heart FM</h2>
-            <p class="meta">Johannesburg — 101.9 FM</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://iceant.antfarm.co.za/heartfm_mp3" type="audio/mpeg"></audio>
-        </section>
-
-        <section class="station">
-            <h2>🇿🇦 Lesedi FM</h2>
-            <p class="meta">South Africa — SABC Regional</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://edge.iono.fm/xice/106_medium.aac" type="audio/aac"></audio>
-        </section>
-
-        <section class="station">
-    <h2>🇿🇦 Link FM</h2>
-    <p class="meta">East London — 97.1 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://de2.streamingpulse.com/ssl/LinkFM" type="audio/mpeg">
-    </audio>
-</section>
-
-        <section class="station">
-    <h2>🇿🇦 Pretoria FM</h2>
-    <p class="meta">Pretoria — 104.2 FM</p>
-    <p class="live">🟢 LIVE — Playing now</p>
-    <audio controls preload="none">
-        <source src="https://edge.iono.fm/xice/362_medium.aac" type="audio/aac">
-    </audio>
-</section>
-
-        <section class="station">
-            <h2>🌍 Radio54 African Panorama</h2>
-            <p class="meta">African Music & Talk</p>
-            <p class="live">🟢 LIVE — Playing now</p>
-            <audio controls preload="none"><source src="https://stream.shoutcastservices.com/proxy/radio54/stream" type="audio/mpeg"></audio>
-        </section>
-
-        <div class="coming-soon" role="region" aria-label="More stations coming soon">
-            <h2>🌍 More African Stations Coming Soon</h2>
-            <p>Stay tuned — submit streams/URLs and I can add them with preview players.</p>
-        </div>
-
-    </main>
-
-    <footer>
-        © 2026 Africa Online Radio
-    </footer>
 
 </body>
 </html>
+```
