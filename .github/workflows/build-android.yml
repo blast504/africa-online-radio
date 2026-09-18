@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Android App Bundle
         working-directory: android
-        run: gradle bundleRelease
+        run: ./gradlew bundleRelease
 
       - name: Upload AAB
         uses: actions/upload-artifact@v4
