@@ -702,6 +702,8 @@
 </footer>
 
 <script>
+    let activePlayer = null;
+
     function playAll() {
         const players = document.querySelectorAll('audio');
 
@@ -717,6 +719,63 @@
 
         players.forEach(player => {
             player.pause();
+        });
+    }
+
+    // Background playback and Android media controls
+    document.querySelectorAll('audio').forEach(player => {
+
+        player.addEventListener('play', () => {
+            activePlayer = player;
+
+            // Pause other stations when a new station starts
+            document.querySelectorAll('audio').forEach(other => {
+                if (other !== player) {
+                    other.pause();
+                }
+            });
+
+            if ('mediaSession' in navigator) {
+                const stationCard = player.closest('.station, .radio-card');
+
+                const title =
+                    stationCard?.querySelector('h2')?.textContent ||
+                    'Africa Online Radio';
+
+                navigator.mediaSession.metadata = new MediaMetadata({
+                    title: title,
+                    artist: 'Africa Online Radio',
+                    album: 'Live Radio'
+                });
+            }
+        });
+
+        player.addEventListener('pause', () => {
+            if ('mediaSession' in navigator && activePlayer === player) {
+                navigator.mediaSession.playbackState = 'paused';
+            }
+        });
+
+        player.addEventListener('playing', () => {
+            if ('mediaSession' in navigator) {
+                navigator.mediaSession.playbackState = 'playing';
+            }
+        });
+    });
+
+    // Android lock-screen controls
+    if ('mediaSession' in navigator) {
+
+        navigator.mediaSession.setActionHandler('play', () => {
+            if (activePlayer) {
+                activePlayer.play().catch(console.error);
+            }
+        });
+
+        navigator.mediaSession.setActionHandler('pause', () => {
+            if (activePlayer) {
+                activePlayer.pause();
+            }
         });
     }
 </script>
