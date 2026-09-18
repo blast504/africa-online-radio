@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +53,6 @@
 <body>
 
     <h1>🌍 Africa Online Radio</h1>
-
 
     <!-- SKYZ METRO FM -->
 
@@ -158,8 +157,10 @@
         </audio>
 
     </div>
-    
+
+
 <script>
+
 let activePlayer = null;
 
 document.querySelectorAll("audio").forEach(function(player) {
@@ -169,35 +170,50 @@ document.querySelectorAll("audio").forEach(function(player) {
         activePlayer = player;
 
         /* Stop other stations */
+
         document.querySelectorAll("audio").forEach(function(other) {
+
             if (other !== player) {
                 other.pause();
             }
+
         });
 
+
         /* Android media controls */
+
         if ("mediaSession" in navigator) {
 
             const station = player.closest(".station");
+
             const name = station
                 ? station.querySelector("h2").textContent
                 : "Africa Online Radio";
 
             navigator.mediaSession.metadata =
                 new MediaMetadata({
+
                     title: name,
+
                     artist: "Africa Online Radio",
+
                     album: "Live Radio"
+
                 });
 
             navigator.mediaSession.playbackState = "playing";
+
         }
+
     });
+
 
     player.addEventListener("pause", function() {
 
         if ("mediaSession" in navigator) {
+
             navigator.mediaSession.playbackState = "paused";
+
         }
 
     });
@@ -206,6 +222,7 @@ document.querySelectorAll("audio").forEach(function(player) {
 
 
 /* Lock-screen PLAY */
+
 if ("mediaSession" in navigator) {
 
     navigator.mediaSession.setActionHandler(
@@ -213,9 +230,13 @@ if ("mediaSession" in navigator) {
         function() {
 
             if (activePlayer) {
+
                 activePlayer.play().catch(function(error) {
+
                     console.log(error);
+
                 });
+
             }
 
         }
@@ -223,19 +244,24 @@ if ("mediaSession" in navigator) {
 
 
     /* Lock-screen PAUSE */
+
     navigator.mediaSession.setActionHandler(
         "pause",
         function() {
 
             if (activePlayer) {
+
                 activePlayer.pause();
+
             }
 
         }
     );
 
 }
+
 </script>
 
 </body>
 </html>
+```
