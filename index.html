@@ -158,7 +158,84 @@
         </audio>
 
     </div>
+    
+<script>
+let activePlayer = null;
 
+document.querySelectorAll("audio").forEach(function(player) {
+
+    player.addEventListener("play", function() {
+
+        activePlayer = player;
+
+        /* Stop other stations */
+        document.querySelectorAll("audio").forEach(function(other) {
+            if (other !== player) {
+                other.pause();
+            }
+        });
+
+        /* Android media controls */
+        if ("mediaSession" in navigator) {
+
+            const station = player.closest(".station");
+            const name = station
+                ? station.querySelector("h2").textContent
+                : "Africa Online Radio";
+
+            navigator.mediaSession.metadata =
+                new MediaMetadata({
+                    title: name,
+                    artist: "Africa Online Radio",
+                    album: "Live Radio"
+                });
+
+            navigator.mediaSession.playbackState = "playing";
+        }
+    });
+
+    player.addEventListener("pause", function() {
+
+        if ("mediaSession" in navigator) {
+            navigator.mediaSession.playbackState = "paused";
+        }
+
+    });
+
+});
+
+
+/* Lock-screen PLAY */
+if ("mediaSession" in navigator) {
+
+    navigator.mediaSession.setActionHandler(
+        "play",
+        function() {
+
+            if (activePlayer) {
+                activePlayer.play().catch(function(error) {
+                    console.log(error);
+                });
+            }
+
+        }
+    );
+
+
+    /* Lock-screen PAUSE */
+    navigator.mediaSession.setActionHandler(
+        "pause",
+        function() {
+
+            if (activePlayer) {
+                activePlayer.pause();
+            }
+
+        }
+    );
+
+}
+</script>
 
 </body>
 </html>
