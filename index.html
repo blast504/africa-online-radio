@@ -1,98 +1,77 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"><meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-<!DOCTYPE html>
-<html lang="en">
+<title>Africa Online Radio</title>
 
-<head>
-    <meta charset="UTF-8">
+<style>
+    body {
+        margin: 0;
+        padding: 20px;
+        background: #111111;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    h1 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
 
-    <title>Africa Online Radio</title>
+    .station {
+        background: white;
+        color: black;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            background: #111111;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
+    .station h2 {
+        margin-top: 0;
+    }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+    .live {
+        color: green;
+        font-weight: bold;
+    }
 
-        .station {
-            background: white;
-            color: black;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-        }
+    audio {
+        display: block !important;
+        width: 100% !important;
+        height: 50px !important;
+        margin-top: 15px;
+    }
+</style>
 
-        .station h2 {
-            margin-top: 0;
-        }
+</head><body><h1>🌍 Africa Online Radio</h1>
 
-        .live {
-            color: green;
-            font-weight: bold;
-        }
+<!-- SKYZ METRO FM -->
+<div class="station">
+    <h2>Skyz Metro FM</h2>
+    <p>Bulawayo, Zimbabwe</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://stream.zeno.fm/2634b6n4qy8uv" type="audio/mpeg">
+    </audio>
+</div>
 
-        audio {
-            display: block !important;
-            width: 100% !important;
-            height: 50px !important;
-            margin-top: 15px;
-        }
-    </style>
-</head>
-
-<body>
-
-    <h1>🌍 Africa Online Radio</h1>
-
-    <!-- SKYZ METRO FM -->
-
-    <div class="station">
-
-        <h2>Skyz Metro FM</h2>
-
-        <p>Bulawayo, Zimbabwe</p>
-
-        <p class="live">● LIVE</p>
-
-        <audio controls preload="none" playsinline>
-            <source
-                src="https://stream.zeno.fm/2634b6n4qy8uv"
-                type="audio/mpeg">
-
-            Your browser does not support audio.
-        </audio>
-        
 <!-- RADIO54 AFRICAN PANORAMA -->
 <div class="station">
     <h2>Radio54 African Panorama</h2>
     <p>Zimbabwe</p>
     <p class="live">● LIVE</p>
-
     <audio controls preload="none" playsinline>
         <source src="https://stream.shoutcastservices.com/proxy/radio54/stream" type="audio/mpeg">
-        Your browser does not support audio.
     </audio>
 </div>
-        
+
 <!-- POWER FM ZIMBABWE -->
 <div class="station">
     <h2>Power FM Zimbabwe</h2>
     <p>Zimbabwe</p>
     <p class="live">● LIVE</p>
-
     <audio controls preload="none" playsinline>
         <source src="https://backupradiostreaming.zbc.co.zw:8000/radio.mp3" type="audio/mpeg">
-        Your browser does not support audio.
     </audio>
 </div>
 
@@ -101,10 +80,8 @@
     <h2>National FM Zimbabwe</h2>
     <p>Zimbabwe</p>
     <p class="live">● LIVE</p>
-
     <audio controls preload="none" playsinline>
         <source src="https://mainradiostreaming.zbc.co.zw:8020/national.mp3" type="audio/mpeg">
-        Your browser does not support audio.
     </audio>
 </div>
 
@@ -113,10 +90,8 @@
     <h2>Khulumani FM</h2>
     <p>Bulawayo, Zimbabwe</p>
     <p class="live">● LIVE</p>
-
     <audio controls preload="none" playsinline>
         <source src="https://www.khulumanifm.co.zw/" type="audio/mpeg">
-        Your browser does not support audio.
     </audio>
 </div>
 
@@ -125,22 +100,18 @@
     <h2>Radio Zimbabwe</h2>
     <p>Zimbabwe</p>
     <p class="live">● LIVE</p>
-
     <audio controls preload="none" playsinline>
         <source src="https://mainradiostreaming.zbc.co.zw:8040/nhepfenuro.mp3" type="audio/mpeg">
-        Your browser does not support audio.
     </audio>
 </div>
-        
+
 <!-- CAPITALK 100.4 FM -->
 <div class="station">
     <h2>Capitalk 100.4 FM</h2>
     <p>Harare, Zimbabwe</p>
     <p class="live">● LIVE</p>
-
     <audio controls preload="none" playsinline>
         <source src="https://edge.iono.fm/xice/162_medium.aac" type="audio/aac">
-        Your browser does not support audio.
     </audio>
 </div>
 
@@ -149,115 +120,68 @@
     <h2>Central Radio 98.5</h2>
     <p>Zimbabwe</p>
     <p class="live">● LIVE</p>
-
     <audio controls preload="none" playsinline>
         <source src="https://centralstream.zbc.co.zw:8000/radio.mp3" type="audio/mpeg">
-        Your browser does not support audio.
     </audio>
 </div>
 
- <!-- STAR FM -->
+<!-- STAR FM -->
+<div class="station">
+    <h2>Star FM</h2>
+    <p>Zimbabwe</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://edge.iono.fm/xice/159_medium.aac" type="audio/aac">
+    </audio>
+</div>
 
-    <div class="station">
-
-        <h2>Star FM</h2>
-
-        <p>Zimbabwe</p>
-
-        <p class="live">● LIVE</p>
-
-        <audio controls preload="none" playsinline>
-            <source
-                src="https://edge.iono.fm/xice/159_medium.aac"
-                type="audio/aac">
-
-            Your browser does not support audio.
-        </audio>
-
-    </div>
-
-
-    <!-- DIAMOND FM -->
-
-    <div class="station">
-
-        <h2>Diamond FM 103.8</h2>
-
-        <p>Mutare, Zimbabwe</p>
-
-        <p class="live">● LIVE</p>
-
-        <audio controls preload="none" playsinline>
-            <source
-                src="https://edge.iono.fm/xice/160_medium.aac"
-                type="audio/aac">
-
-            Your browser does not support audio.
-        </audio>
-
-    </div>
+<!-- DIAMOND FM -->
+<div class="station">
+    <h2>Diamond FM 103.8</h2>
+    <p>Mutare, Zimbabwe</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://edge.iono.fm/xice/160_medium.aac" type="audio/aac">
+    </audio>
+</div>
 
 <!-- ZIFM -->
+<div class="station">
+    <h2>ZiFM Stereo</h2>
+    <p>Zimbabwe</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://edge.iono.fm/xice/134_medium.aac" type="audio/aac">
+    </audio>
+</div>
 
-    <div class="station">
+<!-- ZODIAK -->
+<div class="station">
+    <h2>Zodiak</h2>
+    <p>Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://ice31.securenetsystems.net/0079" type="audio/mpeg">
+    </audio>
+</div>
 
-        <h2>ZiFM Stereo</h2>
-
-        <p>Zimbabwe</p>
-
-        <p class="live">● LIVE</p>
-
-        <audio controls preload="none" playsinline>
-            <source
-                src="https://edge.iono.fm/xice/134_medium.aac"
-                type="audio/aac">
-
-            Your browser does not support audio.
-        </audio>
-
-    </div>
-
- <!-- ZODIAK -->
-
-    <div class="station">
-
-        <h2>Zodiak</h2>
-
-        <p>Malawi</p>
-
-        <p class="live">● LIVE</p>
-
-        <audio controls preload="none" playsinline>
-            <source
-                src="https://ice31.securenetsystems.net/0079"
-                type="audio/mpeg">
-
-            Your browser does not support audio.
-        </audio>
-
-    </div>
-    
 <!-- CHANCO COMMUNITY RADIO -->
 <div class="station">
     <h2>Chanco Community Radio</h2>
     <p>Malawi</p>
     <p class="live">● LIVE</p>
-
     <audio controls preload="none" playsinline>
         <source src="https://live.netradio.pro/listen/chanco/radio.mp3" type="audio/mpeg">
-        Your browser does not support audio.
     </audio>
 </div>
-    
+
 <!-- GROOVE100 FM -->
 <div class="station">
     <h2>Groove100 FM</h2>
     <p>Malawi</p>
     <p class="live">● LIVE</p>
-
     <audio controls preload="none" playsinline>
         <source src="https://a9.asurahosting.com/listen/groove100/radio.mp3" type="audio/mpeg">
-        Your browser does not support audio.
     </audio>
 </div>
 
@@ -266,22 +190,18 @@
     <h2>Amaryllis E-Radio</h2>
     <p>Malawi</p>
     <p class="live">● LIVE</p>
-
     <audio controls preload="none" playsinline>
         <source src="https://s4.radio.co/s40c05d6b1/low" type="audio/mpeg">
-        Your browser does not support audio.
     </audio>
 </div>
-        
+
 <!-- POWER GLOBAL MEDIA -->
 <div class="station">
     <h2>Power Global Media</h2>
     <p>Malawi</p>
     <p class="live">● LIVE</p>
-
     <audio controls preload="none" playsinline>
         <source src="https://a10.asurahosting.com:7270/radio.mp3" type="audio/mpeg">
-        Your browser does not support audio.
     </audio>
 </div>
 
@@ -290,22 +210,8 @@
     <h2>Mdubs Entertainment</h2>
     <p>Malawi</p>
     <p class="live">● LIVE</p>
-
     <audio controls preload="none" playsinline>
         <source src="https://stream.zeno.fm/ogxfqt7gumguv" type="audio/mpeg">
-        Your browser does not support audio.
-    </audio>
-</div>
-    
-<!-- TIMES RADIO MALAWI -->
-<div class="station">
-    <h2>Times Radio Malawi</h2>
-    <p>Malawi</p>
-    <p class="live">● LIVE</p>
-
-    <audio controls preload="none" playsinline>
-        <source src="https://streamdb9web.securenetsystems.net/cirrusencore/TIMESFM" type="audio/mpeg">
-        Your browser does not support audio.
     </audio>
 </div>
 
@@ -314,203 +220,153 @@
     <h2>Lilanguka Radio</h2>
     <p>Malawi</p>
     <p class="live">● LIVE</p>
-
     <audio controls preload="none" playsinline>
         <source src="https://live.netradio.pro/listen/nguka/radio.mp3" type="audio/mpeg">
-        Your browser does not support audio.
     </audio>
 </div>
-    <!-- MBC RADIO 2 FM (FIXED STREAM) -->
-    <div class="station">
-        <h2>MBC Radio 2 FM</h2>
-        <p>Blantyre, Malawi</p>
-        <p class="live">● LIVE</p>
 
-        <audio controls preload="none" playsinline>
-            <source src="http://stream.mbc.mw:8000/radio2" type="audio/mpeg">
-            <source src="https://stream.zeno.fm/489y80w08q5tv" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
+<!-- MBC RADIO 2 FM -->
+<div class="station">
+    <h2>MBC Radio 2 FM</h2>
+    <p>Blantyre, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="http://stream.mbc.mw:8000/radio2" type="audio/mpeg">
+        <source src="https://stream.zeno.fm/489y80w08q5tv" type="audio/mpeg">
+    </audio>
+</div>
 
-    <!-- TIGABANE RADIO (FIXED STREAM) -->
-    <div class="station">
-        <h2>Tigabane Radio</h2>
-        <p>Mzuzu, Malawi</p>
-        <p class="live">● LIVE</p>
+<!-- TIGABANE RADIO -->
+<div class="station">
+    <h2>Tigabane Radio</h2>
+    <p>Mzuzu, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://stream.zeno.fm/54s3x8r7qu8uv" type="audio/mpeg">
+    </audio>
+</div>
 
-        <audio controls preload="none" playsinline>
-            <source src="https://stream.zeno.fm/54s3x8r7qu8uv" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
+<!-- TUNTUFYE FM -->
+<div class="station">
+    <h2>Tuntufye FM</h2>
+    <p>Karonga, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://stream.zeno.fm/2z6a2w54q38uv" type="audio/mpeg">
+    </audio>
+</div>
 
-    <!-- TUNTUFYE FM (FIXED STREAM) -->
-    <div class="station">
-        <h2>Tuntufye FM</h2>
-        <p>Karonga, Malawi</p>
-        <p class="live">● LIVE</p>
+<!-- LUSANGA FM -->
+<div class="station">
+    <h2>Lusanga FM</h2>
+    <p>Mzuzu, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://stream.zeno.fm/99m2q5x6q38uv" type="audio/mpeg">
+    </audio>
+</div>
 
-        <audio controls preload="none" playsinline>
-            <source src="https://stream.zeno.fm/2z6a2w54q38uv" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
+<!-- INVICTUS FM -->
+<div class="station">
+    <h2>Invictus FM</h2>
+    <p>Lilongwe, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://stream.zeno.fm/3u8r7q55q38uv" type="audio/mpeg">
+    </audio>
+</div>
 
-    <!-- LUSANGA FM (FIXED STREAM) -->
-    <div class="station">
-        <h2>Lusanga FM</h2>
-        <p>Mzuzu, Malawi</p>
-        <p class="live">● LIVE</p>
+<!-- MALAWI MUSIC RADIO -->
+<div class="station">
+    <h2>Malawi Music Radio</h2>
+    <p>Blantyre, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://a9.asurahosting.com/listen/malawimusic/radio.mp3" type="audio/mpeg">
+        <source src="https://stream.zeno.fm/7k9w9w38qu8uv" type="audio/mpeg">
+    </audio>
+</div>
 
-        <audio controls preload="none" playsinline>
-            <source src="https://stream.zeno.fm/99m2q5x6q38uv" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
+<!-- CAPITAL FM MALAWI -->
+<div class="station">
+    <h2>Capital FM Malawi</h2>
+    <p>Blantyre, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://stream.zeno.fm/489y80w08q5tv" type="audio/mpeg">
+    </audio>
+</div>
 
-    <!-- INVICTUS FM (FIXED STREAM) -->
-    <div class="station">
-        <h2>Invictus FM</h2>
-        <p>Lilongwe, Malawi</p>
-        <p class="live">● LIVE</p>
+<!-- MBC RADIO 1 -->
+<div class="station">
+    <h2>MBC Radio 1</h2>
+    <p>Lilongwe, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://stream.zeno.fm/u2213m9f428uv" type="audio/mpeg">
+    </audio>
+</div>
 
-        <audio controls preload="none" playsinline>
-            <source src="https://stream.zeno.fm/3u8r7q55q38uv" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
+<!-- MIJ FM -->
+<div class="station">
+    <h2>MIJ FM Radio</h2>
+    <p>Blantyre, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://stream.zeno.fm/4v7p43e8qu8uv" type="audio/mpeg">
+    </audio>
+</div>
 
-    <!-- MALAWI MUSIC RADIO (FIXED STREAM) -->
-    <div class="station">
-        <h2>Malawi Music Radio</h2>
-        <p>Blantyre, Malawi</p>
-        <p class="live">● LIVE</p>
+<!-- YONECO FM -->
+<div class="station">
+    <h2>YONECO FM</h2>
+    <p>Zomba, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://a9.asurahosting.com/listen/yoneco/radio.mp3" type="audio/mpeg">
+    </audio>
+</div>
 
-        <audio controls preload="none" playsinline>
-            <source src="https://a9.asurahosting.com/listen/malawimusic/radio.mp3" type="audio/mpeg">
-            <source src="https://stream.zeno.fm/7k9w9w38qu8uv" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
-    <!-- TIMES RADIO MALAWI -->
-    <div class="station">
-        <h2>Times Radio Malawi</h2>
-        <p>Blantyre, Malawi</p>
-        <p class="live">● LIVE</p>
+<!-- MZATI RADIO -->
+<div class="station">
+    <h2>Mzati Radio</h2>
+    <p>Mulanje, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://live.netradio.pro/listen/mzati/radio.mp3" type="audio/mpeg">
+    </audio>
+</div>
 
-        <audio controls preload="none" playsinline>
-            <source src="https://streamdb9web.securenetsystems.net/cirrusencore/TIMESFM" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
+<!-- TIMVENI RADIO -->
+<div class="station">
+    <h2>Timveni Radio</h2>
+    <p>Lilongwe, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://play.streamafrica.net/timveni" type="audio/mpeg">
+    </audio>
+</div>
 
-    <!-- CAPITAL FM MALAWI -->
-    <div class="station">
-        <h2>Capital FM Malawi</h2>
-        <p>Blantyre, Malawi</p>
-        <p class="live">● LIVE</p>
+<!-- CHISOMO RADIO STATION -->
+<div class="station">
+    <h2>Chisomo Radio Station</h2>
+    <p>Salima, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://live.netradio.pro/listen/crs/radio.mp3" type="audio/mpeg">
+        <source src="https://stream.zeno.fm/4v7p43e8qu8uv" type="audio/mpeg">
+    </audio>
+</div>
 
-        <audio controls preload="none" playsinline>
-            <source src="https://stream.zeno.fm/489y80w08q5tv" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
-
-    <!-- MBC RADIO 1 -->
-    <div class="station">
-        <h2>MBC Radio 1</h2>
-        <p>Lilongwe, Malawi</p>
-        <p class="live">● LIVE</p>
-
-        <audio controls preload="none" playsinline>
-            <source src="https://stream.zeno.fm/u2213m9f428uv" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
-
-    <!-- MIJ FM (MALAWI INSTITUTE OF JOURNALISM) -->
-    <div class="station">
-        <h2>MIJ FM Radio</h2>
-        <p>Blantyre, Malawi</p>
-        <p class="live">● LIVE</p>
-
-        <audio controls preload="none" playsinline>
-            <source src="https://stream.zeno.fm/4v7p43e8qu8uv" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
-
-    <!-- CHANCO COMMUNITY RADIO -->
-    <div class="station">
-        <h2>Chanco Community Radio</h2>
-        <p>Zomba, Malawi</p>
-        <p class="live">● LIVE</p>
-
-        <audio controls preload="none" playsinline>
-            <source src="https://live.netradio.pro/listen/chanco/radio.mp3" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
-
-    <!-- YONECO FM -->
-    <div class="station">
-        <h2>YONECO FM</h2>
-        <p>Zomba, Malawi</p>
-        <p class="live">● LIVE</p>
-
-        <audio controls preload="none" playsinline>
-            <source src="https://a9.asurahosting.com/listen/yoneco/radio.mp3" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
-
-    <!-- MZATI RADIO -->
-    <div class="station">
-        <h2>Mzati Radio</h2>
-        <p>Mulanje, Malawi</p>
-        <p class="live">● LIVE</p>
-
-        <audio controls preload="none" playsinline>
-            <source src="https://live.netradio.pro/listen/mzati/radio.mp3" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
-
-    <!-- TIMVENI RADIO -->
-    <div class="station">
-        <h2>Timveni Radio</h2>
-        <p>Lilongwe, Malawi</p>
-        <p class="live">● LIVE</p>
-
-        <audio controls preload="none" playsinline>
-            <source src="https://play.streamafrica.net/timveni" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
-    <!-- CHISOMO RADIO STATION -->
-    <div class="station">
-        <h2>Chisomo Radio Station</h2>
-        <p>Salima, Malawi</p>
-        <p class="live">● LIVE</p>
-
-        <audio controls preload="none" playsinline>
-            <source src="https://live.netradio.pro/listen/crs/radio.mp3" type="audio/mpeg">
-            <source src="https://stream.zeno.fm/4v7p43e8qu8uv" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
-    <!-- MALAWI VOICES RADIO -->
-    <div class="station">
-        <h2>Malawi Voices Radio</h2>
-        <p>Lilongwe, Malawi</p>
-        <p class="live">● LIVE</p>
-
-        <audio controls preload="none" playsinline>
-            <source src="https://stream.zeno.fm/7k9w9w38qu8uv" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
+<!-- MALAWI VOICES RADIO -->
+<div class="station">
+    <h2>Malawi Voices Radio</h2>
+    <p>Lilongwe, Malawi</p>
+    <p class="live">● LIVE</p>
+    <audio controls preload="none" playsinline>
+        <source src="https://stream.zeno.fm/7k9w9w38qu8uv" type="audio/mpeg">
+    </audio>
+</div>
 
 <script>
 
@@ -522,18 +378,11 @@ document.querySelectorAll("audio").forEach(function(player) {
 
         activePlayer = player;
 
-        /* Stop other stations */
-
         document.querySelectorAll("audio").forEach(function(other) {
-
             if (other !== player) {
                 other.pause();
             }
-
         });
-
-
-        /* Android media controls */
 
         if ("mediaSession" in navigator) {
 
@@ -545,76 +394,50 @@ document.querySelectorAll("audio").forEach(function(player) {
 
             navigator.mediaSession.metadata =
                 new MediaMetadata({
-
                     title: name,
-
                     artist: "Africa Online Radio",
-
                     album: "Live Radio"
-
                 });
 
             navigator.mediaSession.playbackState = "playing";
-
         }
 
     });
 
-
     player.addEventListener("pause", function() {
 
         if ("mediaSession" in navigator) {
-
             navigator.mediaSession.playbackState = "paused";
-
         }
 
     });
 
 });
 
-
-/* Lock-screen PLAY */
-
 if ("mediaSession" in navigator) {
 
     navigator.mediaSession.setActionHandler(
         "play",
         function() {
-
             if (activePlayer) {
-
                 activePlayer.play().catch(function(error) {
-
                     console.log(error);
-
                 });
-
             }
-
         }
     );
-
-
-    /* Lock-screen PAUSE */
 
     navigator.mediaSession.setActionHandler(
         "pause",
         function() {
-
             if (activePlayer) {
-
                 activePlayer.pause();
-
             }
-
         }
     );
 
 }
 
-</script>
-
-</body>
+</script></body>
 </html>
 
