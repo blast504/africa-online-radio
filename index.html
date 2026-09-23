@@ -16,9 +16,6 @@
 
 <link rel="canonical" href="https://blast504.github.io/africa-online-radio/">
 
-<!-- Load HLS.js library for streaming compatibility on mobile browsers -->
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-
 <style>
     body {
         margin: 0;
@@ -67,9 +64,10 @@
     <h2>ZiFM Stereo</h2>
     <p>Harare, Zimbabwe</p>
     <p class="live">● LIVE</p>
-    <audio class="hls-audio" controls preload="none" data-src="https://stream.iono.fm/x/zifm.m3u8" playsinline>
+    <audio controls preload="none" playsinline>
+        <source src="https://edge.iono.fm/xice/134_medium.aac" type="audio/aac">
         <source src="https://stream.iono.fm/x/zifm" type="audio/mpeg">
-        Your browser does not support the audio element.
+        Your browser does not support the audio player.
     </audio>
 </div>
 
@@ -78,9 +76,9 @@
     <h2>98.4 Midlands FM</h2>
     <p>Gweru, Zimbabwe</p>
     <p class="live">● LIVE</p>
-    <audio class="hls-audio" controls preload="none" data-src="https://stream.iono.fm/x/984midlands.m3u8" playsinline>
+    <audio controls preload="none" playsinline>
         <source src="https://stream.zeno.fm/4gq3u6v12zhvv" type="audio/mpeg">
-        Your browser does not support the audio element.
+        Your browser does not support the audio player.
     </audio>
 </div>
 
@@ -89,9 +87,10 @@
     <h2>Diamond FM 103.8</h2>
     <p>Mutare, Zimbabwe</p>
     <p class="live">● LIVE</p>
-    <audio class="hls-audio" controls preload="none" data-src="https://stream.iono.fm/x/diamondfm.m3u8" playsinline>
+    <audio controls preload="none" playsinline>
+        <source src="https://edge.iono.fm/xice/160_medium.aac" type="audio/aac">
         <source src="https://stream.zeno.fm/y173934440duv" type="audio/mpeg">
-        Your browser does not support the audio element.
+        Your browser does not support the audio player.
     </audio>
 </div>
 
@@ -100,9 +99,9 @@
     <h2>Hevoi FM 100.2</h2>
     <p>Masvingo, Zimbabwe</p>
     <p class="live">● LIVE</p>
-    <audio class="hls-audio" controls preload="none" data-src="https://stream.iono.fm/x/hevoifm.m3u8" playsinline>
+    <audio controls preload="none" playsinline>
         <source src="https://stream.zeno.fm/03m3u6v12zhvv" type="audio/mpeg">
-        Your browser does not support the audio element.
+        Your browser does not support the audio player.
     </audio>
 </div>
 
@@ -113,7 +112,7 @@
     <p class="live">● LIVE</p>
     <audio controls preload="none" playsinline>
         <source src="https://stream.zeno.fm/yafm918" type="audio/mpeg">
-        Your browser does not support the audio element.
+        Your browser does not support the audio player.
     </audio>
 </div>
 
@@ -124,7 +123,7 @@
     <p class="live">● LIVE</p>
     <audio controls preload="none" playsinline>
         <source src="https://stream.zeno.fm/f382a8y860duv" type="audio/mpeg">
-        Your browser does not support the audio element.
+        Your browser does not support the audio player.
     </audio>
 </div>
 
@@ -135,7 +134,7 @@
     <p class="live">● LIVE</p>
     <audio controls preload="none" playsinline>
         <source src="https://stream.zeno.fm/4v32y28080duv" type="audio/mpeg">
-        Your browser does not support the audio element.
+        Your browser does not support the audio player.
     </audio>
 </div>
 
@@ -450,73 +449,59 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    // 1. Initialize HLS streams for mobile compatibility (.m3u8)
-    const hlsAudios = document.querySelectorAll('.hls-audio');
-    hlsAudios.forEach(audio => {
-        const src = audio.getAttribute('data-src');
-        if (src && src.endsWith('.m3u8') && Hls.isSupported()) {
-            const hls = new Hls();
-            hls.loadSource(src);
-            hls.attachMedia(audio);
+let activePlayer = null;
+
+document.querySelectorAll("audio").forEach(function(player) {
+    player.addEventListener("play", function() {
+        activePlayer = player;
+
+        document.querySelectorAll("audio").forEach(function(other) {
+            if (other !== player) {
+                other.pause();
+            }
+        });
+
+        if ("mediaSession" in navigator) {
+            const parent = player.closest(".station") || player.closest(".station-card");
+            let name = "Africa Online Radio";
+
+            if (parent) {
+                const titleEl = parent.querySelector("h2") || parent.querySelector("h3");
+                if (titleEl) name = titleEl.textContent;
+            }
+
+            navigator.mediaSession.metadata = new MediaMetadata({
+                title: name,
+                artist: "Africa Online Radio",
+                album: "Live Radio"
+            });
+
+            navigator.mediaSession.playbackState = "playing";
         }
     });
 
-    // 2. Play/Pause Mutex & MediaSession setup
-    let activePlayer = null;
+    player.addEventListener("pause", function() {
+        if ("mediaSession" in navigator) {
+            navigator.mediaSession.playbackState = "paused";
+        }
+    });
+});
 
-    document.querySelectorAll("audio").forEach(function(player) {
-        player.addEventListener("play", function() {
-            activePlayer = player;
-
-            document.querySelectorAll("audio").forEach(function(other) {
-                if (other !== player) {
-                    other.pause();
-                }
+if ("mediaSession" in navigator) {
+    navigator.mediaSession.setActionHandler("play", function() {
+        if (activePlayer) {
+            activePlayer.play().catch(function(error) {
+                console.log(error);
             });
-
-            if ("mediaSession" in navigator) {
-                const parent = player.closest(".station") || player.closest(".station-card");
-                let name = "Africa Online Radio";
-
-                if (parent) {
-                    const titleEl = parent.querySelector("h2") || parent.querySelector("h3");
-                    if (titleEl) name = titleEl.textContent;
-                }
-
-                navigator.mediaSession.metadata = new MediaMetadata({
-                    title: name,
-                    artist: "Africa Online Radio",
-                    album: "Live Radio"
-                });
-
-                navigator.mediaSession.playbackState = "playing";
-            }
-        });
-
-        player.addEventListener("pause", function() {
-            if ("mediaSession" in navigator) {
-                navigator.mediaSession.playbackState = "paused";
-            }
-        });
+        }
     });
 
-    if ("mediaSession" in navigator) {
-        navigator.mediaSession.setActionHandler("play", function() {
-            if (activePlayer) {
-                activePlayer.play().catch(function(error) {
-                    console.log(error);
-                });
-            }
-        });
-
-        navigator.mediaSession.setActionHandler("pause", function() {
-            if (activePlayer) {
-                activePlayer.pause();
-            }
-        });
-    }
-});
+    navigator.mediaSession.setActionHandler("pause", function() {
+        if (activePlayer) {
+            activePlayer.pause();
+        }
+    });
+}
 </script>
 </body>
 </html>
